@@ -1,0 +1,17 @@
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\bin\Debug\RickStock_WindowsFormApp.exe.config
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\bin\Debug\RickStock_WindowsFormApp.exe
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\bin\Debug\RickStock_WindowsFormApp.pdb
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\bin\Debug\EntityFramework.dll
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\bin\Debug\EntityFramework.xml
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.csproj.AssemblyReference.cache
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.Properties.Resources.resources
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.csproj.GenerateResource.cache
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.csproj.CoreCompileInputs.cache
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.csproj.CopyComplete
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.exe
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.pdb
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.LoginForm.resources
+C:\Users\doga\Desktop\C#\RickStock_WindowsFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.MainForm.resources
