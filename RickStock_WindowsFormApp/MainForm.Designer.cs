@@ -29,108 +29,108 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.anasayfaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ürünlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ürünlerimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ürünEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.markaİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.markalarımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.markaEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kategoriİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kategorilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kategoriEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.çıkışYapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Anasayfa = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Urunler = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_UrunleriListele = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_UrunEkle = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_MarkaIslemleri = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_MarkaListele = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_MarkaEkle = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_KategoriIslemleri = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Kategoriler = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_KategoriEkle = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_CikisYap = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.anasayfaToolStripMenuItem,
-            this.ürünlerToolStripMenuItem,
-            this.markaİşlemleriToolStripMenuItem,
-            this.kategoriİşlemleriToolStripMenuItem,
-            this.çıkışYapToolStripMenuItem});
+            this.TSMI_Anasayfa,
+            this.TSMI_Urunler,
+            this.TSMI_MarkaIslemleri,
+            this.TSMI_KategoriIslemleri,
+            this.TSMI_CikisYap});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // anasayfaToolStripMenuItem
+            // TSMI_Anasayfa
             // 
-            this.anasayfaToolStripMenuItem.Name = "anasayfaToolStripMenuItem";
-            this.anasayfaToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.anasayfaToolStripMenuItem.Text = "Anasayfa";
+            this.TSMI_Anasayfa.Name = "TSMI_Anasayfa";
+            this.TSMI_Anasayfa.Size = new System.Drawing.Size(67, 20);
+            this.TSMI_Anasayfa.Text = "Anasayfa";
             // 
-            // ürünlerToolStripMenuItem
+            // TSMI_Urunler
             // 
-            this.ürünlerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ürünlerimToolStripMenuItem,
-            this.ürünEkleToolStripMenuItem});
-            this.ürünlerToolStripMenuItem.Name = "ürünlerToolStripMenuItem";
-            this.ürünlerToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
-            this.ürünlerToolStripMenuItem.Text = "Ürün İşlemleri";
+            this.TSMI_Urunler.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_UrunleriListele,
+            this.TSMI_UrunEkle});
+            this.TSMI_Urunler.Name = "TSMI_Urunler";
+            this.TSMI_Urunler.Size = new System.Drawing.Size(92, 20);
+            this.TSMI_Urunler.Text = "Ürün İşlemleri";
             // 
-            // ürünlerimToolStripMenuItem
+            // TSMI_UrunleriListele
             // 
-            this.ürünlerimToolStripMenuItem.Name = "ürünlerimToolStripMenuItem";
-            this.ürünlerimToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ürünlerimToolStripMenuItem.Text = "Ürünlerim";
+            this.TSMI_UrunleriListele.Name = "TSMI_UrunleriListele";
+            this.TSMI_UrunleriListele.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_UrunleriListele.Text = "Ürünlerim";
             // 
-            // ürünEkleToolStripMenuItem
+            // TSMI_UrunEkle
             // 
-            this.ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
-            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ürünEkleToolStripMenuItem.Text = "Ürün Ekle";
+            this.TSMI_UrunEkle.Name = "TSMI_UrunEkle";
+            this.TSMI_UrunEkle.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_UrunEkle.Text = "Ürün Ekle";
             // 
-            // markaİşlemleriToolStripMenuItem
+            // TSMI_MarkaIslemleri
             // 
-            this.markaİşlemleriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.markalarımToolStripMenuItem,
-            this.markaEkleToolStripMenuItem});
-            this.markaİşlemleriToolStripMenuItem.Name = "markaİşlemleriToolStripMenuItem";
-            this.markaİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
-            this.markaİşlemleriToolStripMenuItem.Text = "Marka İşlemleri";
+            this.TSMI_MarkaIslemleri.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_MarkaListele,
+            this.TSMI_MarkaEkle});
+            this.TSMI_MarkaIslemleri.Name = "TSMI_MarkaIslemleri";
+            this.TSMI_MarkaIslemleri.Size = new System.Drawing.Size(99, 20);
+            this.TSMI_MarkaIslemleri.Text = "Marka İşlemleri";
             // 
-            // markalarımToolStripMenuItem
+            // TSMI_MarkaListele
             // 
-            this.markalarımToolStripMenuItem.Name = "markalarımToolStripMenuItem";
-            this.markalarımToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.markalarımToolStripMenuItem.Text = "Markalar";
+            this.TSMI_MarkaListele.Name = "TSMI_MarkaListele";
+            this.TSMI_MarkaListele.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_MarkaListele.Text = "Markalar";
             // 
-            // markaEkleToolStripMenuItem
+            // TSMI_MarkaEkle
             // 
-            this.markaEkleToolStripMenuItem.Name = "markaEkleToolStripMenuItem";
-            this.markaEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.markaEkleToolStripMenuItem.Text = "Marka Ekle";
+            this.TSMI_MarkaEkle.Name = "TSMI_MarkaEkle";
+            this.TSMI_MarkaEkle.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_MarkaEkle.Text = "Marka Ekle";
             // 
-            // kategoriİşlemleriToolStripMenuItem
+            // TSMI_KategoriIslemleri
             // 
-            this.kategoriİşlemleriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kategorilerToolStripMenuItem,
-            this.kategoriEkleToolStripMenuItem});
-            this.kategoriİşlemleriToolStripMenuItem.Name = "kategoriİşlemleriToolStripMenuItem";
-            this.kategoriİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
-            this.kategoriİşlemleriToolStripMenuItem.Text = "Kategori İşlemleri";
+            this.TSMI_KategoriIslemleri.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_Kategoriler,
+            this.TSMI_KategoriEkle});
+            this.TSMI_KategoriIslemleri.Name = "TSMI_KategoriIslemleri";
+            this.TSMI_KategoriIslemleri.Size = new System.Drawing.Size(110, 20);
+            this.TSMI_KategoriIslemleri.Text = "Kategori İşlemleri";
             // 
-            // kategorilerToolStripMenuItem
+            // TSMI_Kategoriler
             // 
-            this.kategorilerToolStripMenuItem.Name = "kategorilerToolStripMenuItem";
-            this.kategorilerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.kategorilerToolStripMenuItem.Text = "Kategoriler";
+            this.TSMI_Kategoriler.Name = "TSMI_Kategoriler";
+            this.TSMI_Kategoriler.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Kategoriler.Text = "Kategoriler";
             // 
-            // kategoriEkleToolStripMenuItem
+            // TSMI_KategoriEkle
             // 
-            this.kategoriEkleToolStripMenuItem.Name = "kategoriEkleToolStripMenuItem";
-            this.kategoriEkleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.kategoriEkleToolStripMenuItem.Text = "Kategori Ekle";
+            this.TSMI_KategoriEkle.Name = "TSMI_KategoriEkle";
+            this.TSMI_KategoriEkle.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_KategoriEkle.Text = "Kategori Ekle";
             // 
-            // çıkışYapToolStripMenuItem
+            // TSMI_CikisYap
             // 
-            this.çıkışYapToolStripMenuItem.Name = "çıkışYapToolStripMenuItem";
-            this.çıkışYapToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.çıkışYapToolStripMenuItem.Text = "Çıkış Yap";
+            this.TSMI_CikisYap.Name = "TSMI_CikisYap";
+            this.TSMI_CikisYap.Size = new System.Drawing.Size(66, 20);
+            this.TSMI_CikisYap.Text = "Çıkış Yap";
             // 
             // MainForm
             // 
@@ -153,16 +153,16 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem anasayfaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ürünlerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ürünlerimToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ürünEkleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem markaİşlemleriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem markalarımToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem markaEkleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kategoriİşlemleriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kategorilerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kategoriEkleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem çıkışYapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Anasayfa;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Urunler;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_UrunleriListele;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_UrunEkle;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_MarkaIslemleri;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_MarkaListele;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_MarkaEkle;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_KategoriIslemleri;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Kategoriler;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_KategoriEkle;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_CikisYap;
     }
 }

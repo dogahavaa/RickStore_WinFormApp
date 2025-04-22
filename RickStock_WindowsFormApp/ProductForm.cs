@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace RickStock_WindowsFormApp
 {
-    public partial class MainForm : Form
+    public partial class ProductForm : Form
     {
-        public MainForm()
+        public ProductForm()
         {
             InitializeComponent();
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
-        }
-
     }
 }
