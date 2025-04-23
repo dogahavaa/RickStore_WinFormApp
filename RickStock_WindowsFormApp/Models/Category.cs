@@ -22,5 +22,21 @@ namespace RickStock_WindowsFormApp.Models
         public virtual ICollection<Product> Products { get; set; } = new List<Product>();
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; } = false;
+
+        public string DisplayName
+        {
+            get
+            {
+                if (UpCategory == null)
+                {
+                    return Name;
+                }
+                else 
+                {
+                    return $"{UpCategory.Name} --> {Name}";
+                }
+                
+            }
+        }
     }
 }

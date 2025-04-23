@@ -133,8 +133,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="Assets\Images\ProductImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\add-image.png" />
     <Content Include="Assets\Images\rickstock-logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

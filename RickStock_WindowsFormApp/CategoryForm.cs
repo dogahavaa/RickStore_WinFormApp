@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace RickStock_WindowsFormApp
 {
+    // ***** YAPILACAKLAR *******
+    // Treeview'da seçilen kategoriye ait ürünleri dgv ile listele
+
+
     public partial class CategoryForm : Form
     {
         RickStockDB db = new RickStockDB();
@@ -19,9 +23,6 @@ namespace RickStock_WindowsFormApp
         {
             InitializeComponent();
         }
-
-       
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tb_name.Text))
@@ -31,7 +32,7 @@ namespace RickStock_WindowsFormApp
                 if (!cb_mainCategory.Checked)
                 {
                     c.UpCategoryID = Convert.ToInt32(combobox_mainCategory.SelectedValue);
-                    
+
                 }
                 db.Categories.Add(c);
                 db.SaveChanges();
@@ -44,6 +45,7 @@ namespace RickStock_WindowsFormApp
         {
             ComboboxDoldur();
             KategorileriGetir();
+            btn_duzenle.Visible = false;
         }
 
         private void cb_mainCategory_CheckedChanged(object sender, EventArgs e)
@@ -129,18 +131,75 @@ namespace RickStock_WindowsFormApp
                 DialogResult sonuc = MessageBox.Show($"'{c.Name}' kategorisini silmek istiyor musun ?", "Sil", MessageBoxButtons.YesNo);
                 if (sonuc == DialogResult.Yes)
                 {
+                    if (c.UpCategoryID == null) // Eğer ana kategori ise
+                    {
+                        List<Category> altkategoriler = db.Categories.Where(x => x.UpCategoryID == c.ID).ToList();
+
+                        if (altkategoriler.Count > 0) // Eğer alt kategorisi var ise
+                        {
+                            DialogResult altsonuc = MessageBox.Show("Alt kategoriler de silinsin mi ?", "Sil", MessageBoxButtons.YesNo);
+                            if (altsonuc == DialogResult.Yes) // Tüm alt kategorileri sil
+                            {
+                                foreach (Category item in altkategoriler)
+                                {
+                                    db.Categories.Remove(item);
+                                }
+                            }
+                        }
+                    }
                     db.Categories.Remove(c);
                     db.SaveChanges();
                     KategorileriGetir();
+                    ComboboxDoldur();
                 }
             }
             else
             {
                 MessageBox.Show("Kategori bulunamadı.");
             }
+        }
+
+        // Kategoriyi Getir
+        private void TSMI_Duzenle_Click(object sender, EventArgs e)
+        {
+            btn_duzenle.Visible = true;
             
-            // Alt kategorileri de silmek istiyor musun diye sorsun ona göre işlemi yapılsın.
             
+            int categoryID = (int)selectedNode.Tag;
+            Category c = db.Categories.Find(categoryID);
+            if (c != null)
+            {
+                tb_name.Text = c.Name;
+                if (c.UpCategoryID == null)
+                {
+                    cb_mainCategory.Checked = true;
+                }
+                else
+                {
+                    cb_mainCategory.Checked = false;
+                    combobox_mainCategory.SelectedValue = Convert.ToInt32(c.UpCategoryID);
+                }
+            }
+        }
+        // Kategoriyi düzenle
+        private void btn_duzenle_Click(object sender, EventArgs e)
+        {
+            int categoryID = (int)selectedNode.Tag;
+            Category c = db.Categories.Find(categoryID);
+            
+            c.Name = tb_name.Text;
+            if (cb_mainCategory.Checked)
+            {
+                c.UpCategoryID = null;
+            }
+            else
+            {
+                c.UpCategoryID = Convert.ToInt32(combobox_mainCategory.SelectedValue);
+            }
+            db.SaveChanges();
+            ComboboxDoldur();
+            KategorileriGetir();
+            btn_duzenle.Visible = false;
         }
     }
 }

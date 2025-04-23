@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.CMS_SilDuzenle = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMI_Duzenle = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Sil = new System.Windows.Forms.ToolStripMenuItem();
             this.groupbox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lbl_upCategory = new System.Windows.Forms.Label();
@@ -38,12 +41,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CMS_SilDuzenle = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.TSMI_Duzenle = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMI_Sil = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_duzenle = new System.Windows.Forms.Button();
+            this.CMS_SilDuzenle.SuspendLayout();
             this.groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.CMS_SilDuzenle.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeView1
@@ -57,11 +58,34 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDown);
             // 
+            // CMS_SilDuzenle
+            // 
+            this.CMS_SilDuzenle.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_Duzenle,
+            this.TSMI_Sil});
+            this.CMS_SilDuzenle.Name = "CMS_SilDuzenle";
+            this.CMS_SilDuzenle.Size = new System.Drawing.Size(117, 48);
+            // 
+            // TSMI_Duzenle
+            // 
+            this.TSMI_Duzenle.Name = "TSMI_Duzenle";
+            this.TSMI_Duzenle.Size = new System.Drawing.Size(116, 22);
+            this.TSMI_Duzenle.Text = "Düzenle";
+            this.TSMI_Duzenle.Click += new System.EventHandler(this.TSMI_Duzenle_Click);
+            // 
+            // TSMI_Sil
+            // 
+            this.TSMI_Sil.Name = "TSMI_Sil";
+            this.TSMI_Sil.Size = new System.Drawing.Size(116, 22);
+            this.TSMI_Sil.Text = "Sil";
+            this.TSMI_Sil.Click += new System.EventHandler(this.TSMI_Sil_Click);
+            // 
             // groupbox
             // 
             this.groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupbox.Controls.Add(this.btn_duzenle);
             this.groupbox.Controls.Add(this.button1);
             this.groupbox.Controls.Add(this.lbl_upCategory);
             this.groupbox.Controls.Add(this.combobox_mainCategory);
@@ -143,26 +167,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 203);
             this.dataGridView1.TabIndex = 2;
             // 
-            // CMS_SilDuzenle
+            // btn_duzenle
             // 
-            this.CMS_SilDuzenle.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSMI_Duzenle,
-            this.TSMI_Sil});
-            this.CMS_SilDuzenle.Name = "CMS_SilDuzenle";
-            this.CMS_SilDuzenle.Size = new System.Drawing.Size(181, 70);
-            // 
-            // TSMI_Duzenle
-            // 
-            this.TSMI_Duzenle.Name = "TSMI_Duzenle";
-            this.TSMI_Duzenle.Size = new System.Drawing.Size(116, 22);
-            this.TSMI_Duzenle.Text = "Düzenle";
-            // 
-            // TSMI_Sil
-            // 
-            this.TSMI_Sil.Name = "TSMI_Sil";
-            this.TSMI_Sil.Size = new System.Drawing.Size(180, 22);
-            this.TSMI_Sil.Text = "Sil";
-            this.TSMI_Sil.Click += new System.EventHandler(this.TSMI_Sil_Click);
+            this.btn_duzenle.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_duzenle.Location = new System.Drawing.Point(140, 156);
+            this.btn_duzenle.Name = "btn_duzenle";
+            this.btn_duzenle.Size = new System.Drawing.Size(223, 35);
+            this.btn_duzenle.TabIndex = 9;
+            this.btn_duzenle.Text = "Düzenle";
+            this.btn_duzenle.UseVisualStyleBackColor = true;
+            this.btn_duzenle.Click += new System.EventHandler(this.btn_duzenle_Click);
             // 
             // CategoryForm
             // 
@@ -177,10 +191,10 @@
             this.Name = "CategoryForm";
             this.Text = "CategoryForm";
             this.Load += new System.EventHandler(this.CategoryForm_Load);
+            this.CMS_SilDuzenle.ResumeLayout(false);
             this.groupbox.ResumeLayout(false);
             this.groupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.CMS_SilDuzenle.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -199,5 +213,6 @@
         private System.Windows.Forms.ContextMenuStrip CMS_SilDuzenle;
         private System.Windows.Forms.ToolStripMenuItem TSMI_Duzenle;
         private System.Windows.Forms.ToolStripMenuItem TSMI_Sil;
+        private System.Windows.Forms.Button btn_duzenle;
     }
 }
