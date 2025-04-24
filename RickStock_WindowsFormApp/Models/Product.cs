@@ -22,6 +22,9 @@ namespace RickStock_WindowsFormApp.Models
         public int  CategoryID { get; set; }
         [ForeignKey("CategoryID")]
         public virtual Category Category { get; set; }
+        public int BrandID { get; set; }
+        [ForeignKey("BrandID")]
+        public virtual Brand Brand { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; } = false;
     }

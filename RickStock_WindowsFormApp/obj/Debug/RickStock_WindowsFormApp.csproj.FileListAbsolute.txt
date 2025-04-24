@@ -35,3 +35,4 @@ C:\Users\doga\Documents\GitHub\RickStore_WinFormApp\RickStock_WindowsFormApp\obj
 C:\Users\doga\Documents\GitHub\RickStore_WinFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.ProductForm.resources
 C:\Users\doga\Documents\GitHub\RickStore_WinFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.CategoryForm.resources
 C:\Users\doga\Documents\GitHub\RickStore_WinFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.Migrations.AddCategoryWithHierarchy.resources
+C:\Users\doga\Documents\GitHub\RickStore_WinFormApp\RickStock_WindowsFormApp\obj\Debug\RickStock_WindowsFormApp.BrandForm.resources

@@ -13,6 +13,7 @@ namespace RickStock_WindowsFormApp
 {
     // ***** YAPILACAKLAR *******
     // Treeview'da seçilen kategoriye ait ürünleri dgv ile listele
+    // Kategori adını Unique yap ve buradan kontrolünü sağla
 
 
     public partial class CategoryForm : Form
@@ -37,6 +38,11 @@ namespace RickStock_WindowsFormApp
                 db.Categories.Add(c);
                 db.SaveChanges();
             }
+            else
+            {
+                MessageBox.Show("Kategori adı boş olamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             ComboboxDoldur();
             KategorileriGetir();
         }
@@ -186,20 +192,32 @@ namespace RickStock_WindowsFormApp
         {
             int categoryID = (int)selectedNode.Tag;
             Category c = db.Categories.Find(categoryID);
-            
-            c.Name = tb_name.Text;
-            if (cb_mainCategory.Checked)
+
+            if (!string.IsNullOrEmpty(tb_name.Text))
             {
-                c.UpCategoryID = null;
+                c.Name = tb_name.Text;
+                if (cb_mainCategory.Checked)
+                {
+                    c.UpCategoryID = null;
+                }
+                else
+                {
+                    c.UpCategoryID = Convert.ToInt32(combobox_mainCategory.SelectedValue);
+                }
+                db.SaveChanges();
+                ComboboxDoldur();
+                KategorileriGetir();
+                btn_duzenle.Visible = false;
             }
             else
             {
-                c.UpCategoryID = Convert.ToInt32(combobox_mainCategory.SelectedValue);
+                MessageBox.Show("Kategori adı boş olamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            db.SaveChanges();
-            ComboboxDoldur();
-            KategorileriGetir();
-            btn_duzenle.Visible = false;
+        }
+
+        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

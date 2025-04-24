@@ -34,6 +34,7 @@
             this.TSMI_Duzenle = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_Sil = new System.Windows.Forms.ToolStripMenuItem();
             this.groupbox = new System.Windows.Forms.GroupBox();
+            this.btn_duzenle = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lbl_upCategory = new System.Windows.Forms.Label();
             this.combobox_mainCategory = new System.Windows.Forms.ComboBox();
@@ -41,7 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_duzenle = new System.Windows.Forms.Button();
             this.CMS_SilDuzenle.SuspendLayout();
             this.groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -64,7 +64,7 @@
             this.TSMI_Duzenle,
             this.TSMI_Sil});
             this.CMS_SilDuzenle.Name = "CMS_SilDuzenle";
-            this.CMS_SilDuzenle.Size = new System.Drawing.Size(117, 48);
+            this.CMS_SilDuzenle.Size = new System.Drawing.Size(181, 70);
             // 
             // TSMI_Duzenle
             // 
@@ -76,7 +76,7 @@
             // TSMI_Sil
             // 
             this.TSMI_Sil.Name = "TSMI_Sil";
-            this.TSMI_Sil.Size = new System.Drawing.Size(116, 22);
+            this.TSMI_Sil.Size = new System.Drawing.Size(180, 22);
             this.TSMI_Sil.Text = "Sil";
             this.TSMI_Sil.Click += new System.EventHandler(this.TSMI_Sil_Click);
             // 
@@ -98,6 +98,17 @@
             this.groupbox.TabIndex = 1;
             this.groupbox.TabStop = false;
             this.groupbox.Text = "Kategori İşlemleri";
+            // 
+            // btn_duzenle
+            // 
+            this.btn_duzenle.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_duzenle.Location = new System.Drawing.Point(140, 156);
+            this.btn_duzenle.Name = "btn_duzenle";
+            this.btn_duzenle.Size = new System.Drawing.Size(223, 35);
+            this.btn_duzenle.TabIndex = 9;
+            this.btn_duzenle.Text = "Düzenle";
+            this.btn_duzenle.UseVisualStyleBackColor = true;
+            this.btn_duzenle.Click += new System.EventHandler(this.btn_duzenle_Click);
             // 
             // button1
             // 
@@ -166,17 +177,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 203);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // btn_duzenle
-            // 
-            this.btn_duzenle.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_duzenle.Location = new System.Drawing.Point(140, 156);
-            this.btn_duzenle.Name = "btn_duzenle";
-            this.btn_duzenle.Size = new System.Drawing.Size(223, 35);
-            this.btn_duzenle.TabIndex = 9;
-            this.btn_duzenle.Text = "Düzenle";
-            this.btn_duzenle.UseVisualStyleBackColor = true;
-            this.btn_duzenle.Click += new System.EventHandler(this.btn_duzenle_Click);
+            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // CategoryForm
             // 

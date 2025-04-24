@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_ekle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,9 +44,16 @@
             this.cb_kategoriler = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pb_resim = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cb_marka = new System.Windows.Forms.ComboBox();
+            this.CMS_SilDuzenle = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMI_Duzenle = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Sil = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_duzenle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_fiyat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_resim)).BeginInit();
+            this.CMS_SilDuzenle.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -53,13 +61,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 302);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(712, 226);
+            this.dataGridView1.Size = new System.Drawing.Size(812, 226);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // btn_ekle
             // 
             this.btn_ekle.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_ekle.Location = new System.Drawing.Point(460, 260);
+            this.btn_ekle.Location = new System.Drawing.Point(549, 243);
             this.btn_ekle.Name = "btn_ekle";
             this.btn_ekle.Size = new System.Drawing.Size(223, 35);
             this.btn_ekle.TabIndex = 12;
@@ -71,7 +80,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(23, 31);
+            this.label1.Location = new System.Drawing.Point(66, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 11;
@@ -79,16 +88,16 @@
             // 
             // tb_barkodno
             // 
-            this.tb_barkodno.Location = new System.Drawing.Point(127, 31);
+            this.tb_barkodno.Location = new System.Drawing.Point(70, 40);
             this.tb_barkodno.Name = "tb_barkodno";
-            this.tb_barkodno.Size = new System.Drawing.Size(224, 20);
+            this.tb_barkodno.Size = new System.Drawing.Size(266, 20);
             this.tb_barkodno.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(32, 64);
+            this.label2.Location = new System.Drawing.Point(66, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 14;
@@ -96,16 +105,16 @@
             // 
             // tb_urunAdi
             // 
-            this.tb_urunAdi.Location = new System.Drawing.Point(127, 64);
+            this.tb_urunAdi.Location = new System.Drawing.Point(70, 94);
             this.tb_urunAdi.Name = "tb_urunAdi";
-            this.tb_urunAdi.Size = new System.Drawing.Size(224, 20);
+            this.tb_urunAdi.Size = new System.Drawing.Size(266, 20);
             this.tb_urunAdi.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(50, 199);
+            this.label3.Location = new System.Drawing.Point(467, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 15;
@@ -113,17 +122,17 @@
             // 
             // tb_aciklama
             // 
-            this.tb_aciklama.Location = new System.Drawing.Point(460, 114);
+            this.tb_aciklama.Location = new System.Drawing.Point(548, 142);
             this.tb_aciklama.Multiline = true;
             this.tb_aciklama.Name = "tb_aciklama";
-            this.tb_aciklama.Size = new System.Drawing.Size(224, 105);
+            this.tb_aciklama.Size = new System.Drawing.Size(224, 77);
             this.tb_aciklama.TabIndex = 16;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(456, 91);
+            this.label4.Location = new System.Drawing.Point(457, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 20);
             this.label4.TabIndex = 17;
@@ -133,7 +142,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(59, 96);
+            this.label5.Location = new System.Drawing.Point(66, 123);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 20);
             this.label5.TabIndex = 19;
@@ -141,16 +150,21 @@
             // 
             // nud_fiyat
             // 
-            this.nud_fiyat.Location = new System.Drawing.Point(127, 97);
+            this.nud_fiyat.Location = new System.Drawing.Point(70, 148);
+            this.nud_fiyat.Maximum = new decimal(new int[] {
+            50000,
+            0,
+            0,
+            0});
             this.nud_fiyat.Name = "nud_fiyat";
-            this.nud_fiyat.Size = new System.Drawing.Size(224, 20);
+            this.nud_fiyat.Size = new System.Drawing.Size(266, 20);
             this.nud_fiyat.TabIndex = 20;
             // 
             // checkBox_aktif
             // 
             this.checkBox_aktif.AutoSize = true;
             this.checkBox_aktif.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBox_aktif.Location = new System.Drawing.Point(460, 229);
+            this.checkBox_aktif.Location = new System.Drawing.Point(461, 249);
             this.checkBox_aktif.Name = "checkBox_aktif";
             this.checkBox_aktif.Size = new System.Drawing.Size(61, 24);
             this.checkBox_aktif.TabIndex = 21;
@@ -160,16 +174,16 @@
             // cb_kategoriler
             // 
             this.cb_kategoriler.FormattingEnabled = true;
-            this.cb_kategoriler.Location = new System.Drawing.Point(460, 53);
+            this.cb_kategoriler.Location = new System.Drawing.Point(71, 253);
             this.cb_kategoriler.Name = "cb_kategoriler";
-            this.cb_kategoriler.Size = new System.Drawing.Size(223, 21);
+            this.cb_kategoriler.Size = new System.Drawing.Size(265, 21);
             this.cb_kategoriler.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(456, 30);
+            this.label6.Location = new System.Drawing.Point(67, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 20);
             this.label6.TabIndex = 23;
@@ -179,19 +193,73 @@
             // 
             this.pb_resim.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_resim.Image = global::RickStock_WindowsFormApp.Properties.Resources.add_image;
-            this.pb_resim.Location = new System.Drawing.Point(127, 142);
+            this.pb_resim.Location = new System.Drawing.Point(548, 20);
             this.pb_resim.Name = "pb_resim";
-            this.pb_resim.Size = new System.Drawing.Size(224, 152);
+            this.pb_resim.Size = new System.Drawing.Size(224, 98);
             this.pb_resim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_resim.TabIndex = 18;
             this.pb_resim.TabStop = false;
             this.pb_resim.Click += new System.EventHandler(this.pb_resim_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(67, 178);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 20);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Marka";
+            // 
+            // cb_marka
+            // 
+            this.cb_marka.FormattingEnabled = true;
+            this.cb_marka.Location = new System.Drawing.Point(71, 201);
+            this.cb_marka.Name = "cb_marka";
+            this.cb_marka.Size = new System.Drawing.Size(265, 21);
+            this.cb_marka.TabIndex = 24;
+            // 
+            // CMS_SilDuzenle
+            // 
+            this.CMS_SilDuzenle.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_Duzenle,
+            this.TSMI_Sil});
+            this.CMS_SilDuzenle.Name = "CMS_SilDuzenle";
+            this.CMS_SilDuzenle.Size = new System.Drawing.Size(181, 70);
+            // 
+            // TSMI_Duzenle
+            // 
+            this.TSMI_Duzenle.Name = "TSMI_Duzenle";
+            this.TSMI_Duzenle.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Duzenle.Text = "Düzenle";
+            this.TSMI_Duzenle.Click += new System.EventHandler(this.TSMI_Duzenle_Click);
+            // 
+            // TSMI_Sil
+            // 
+            this.TSMI_Sil.Name = "TSMI_Sil";
+            this.TSMI_Sil.Size = new System.Drawing.Size(132, 22);
+            this.TSMI_Sil.Text = "Sil / Geri Al";
+            this.TSMI_Sil.Click += new System.EventHandler(this.TSMI_Sil_Click);
+            // 
+            // btn_duzenle
+            // 
+            this.btn_duzenle.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_duzenle.Location = new System.Drawing.Point(549, 243);
+            this.btn_duzenle.Name = "btn_duzenle";
+            this.btn_duzenle.Size = new System.Drawing.Size(223, 35);
+            this.btn_duzenle.TabIndex = 27;
+            this.btn_duzenle.Text = "Düzenle";
+            this.btn_duzenle.UseVisualStyleBackColor = true;
+            this.btn_duzenle.Visible = false;
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 540);
+            this.ClientSize = new System.Drawing.Size(836, 540);
+            this.Controls.Add(this.btn_duzenle);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cb_marka);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cb_kategoriler);
             this.Controls.Add(this.checkBox_aktif);
@@ -213,6 +281,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_fiyat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_resim)).EndInit();
+            this.CMS_SilDuzenle.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +304,11 @@
         private System.Windows.Forms.CheckBox checkBox_aktif;
         private System.Windows.Forms.ComboBox cb_kategoriler;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cb_marka;
+        private System.Windows.Forms.ContextMenuStrip CMS_SilDuzenle;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Duzenle;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Sil;
+        private System.Windows.Forms.Button btn_duzenle;
     }
 }
