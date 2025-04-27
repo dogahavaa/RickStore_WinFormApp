@@ -41,10 +41,10 @@
             this.cb_mainCategory = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_urunler = new System.Windows.Forms.DataGridView();
             this.CMS_SilDuzenle.SuspendLayout();
             this.groupbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_urunler)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView1
@@ -56,6 +56,7 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(354, 217);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDown);
             // 
             // CMS_SilDuzenle
@@ -64,7 +65,7 @@
             this.TSMI_Duzenle,
             this.TSMI_Sil});
             this.CMS_SilDuzenle.Name = "CMS_SilDuzenle";
-            this.CMS_SilDuzenle.Size = new System.Drawing.Size(181, 70);
+            this.CMS_SilDuzenle.Size = new System.Drawing.Size(117, 48);
             // 
             // TSMI_Duzenle
             // 
@@ -76,7 +77,7 @@
             // TSMI_Sil
             // 
             this.TSMI_Sil.Name = "TSMI_Sil";
-            this.TSMI_Sil.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Sil.Size = new System.Drawing.Size(116, 22);
             this.TSMI_Sil.Text = "Sil";
             this.TSMI_Sil.Click += new System.EventHandler(this.TSMI_Sil_Click);
             // 
@@ -170,21 +171,21 @@
             this.tb_name.Size = new System.Drawing.Size(224, 20);
             this.tb_name.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgv_urunler
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 235);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 203);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
+            this.dgv_urunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_urunler.Location = new System.Drawing.Point(12, 235);
+            this.dgv_urunler.Name = "dgv_urunler";
+            this.dgv_urunler.Size = new System.Drawing.Size(776, 203);
+            this.dgv_urunler.TabIndex = 2;
+            this.dgv_urunler.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_urunler);
             this.Controls.Add(this.groupbox);
             this.Controls.Add(this.treeView1);
             this.MaximumSize = new System.Drawing.Size(816, 489);
@@ -195,7 +196,7 @@
             this.CMS_SilDuzenle.ResumeLayout(false);
             this.groupbox.ResumeLayout(false);
             this.groupbox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_urunler)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,7 +211,7 @@
         private System.Windows.Forms.Label lbl_upCategory;
         private System.Windows.Forms.ComboBox combobox_mainCategory;
         private System.Windows.Forms.CheckBox cb_mainCategory;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_urunler;
         private System.Windows.Forms.ContextMenuStrip CMS_SilDuzenle;
         private System.Windows.Forms.ToolStripMenuItem TSMI_Duzenle;
         private System.Windows.Forms.ToolStripMenuItem TSMI_Sil;

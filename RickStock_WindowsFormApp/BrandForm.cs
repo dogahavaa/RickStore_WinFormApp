@@ -35,7 +35,7 @@ namespace RickStock_WindowsFormApp
                 if (resimSecildiMi)
                 {
                     b.Logo = pictureName;
-                    string targetPath = Path.Combine(@"C:\Users\doga\Documents\GitHub\RickStore_WinFormApp\RickStock_WindowsFormApp\Assets\Images\BrandImages\", pictureName);
+                    string targetPath = Path.Combine(Application.StartupPath, "Assets", "Images", "BrandImages", pictureName);
                     File.Copy(picturePath, targetPath, true);
                     resimSecildiMi = false;
                 }

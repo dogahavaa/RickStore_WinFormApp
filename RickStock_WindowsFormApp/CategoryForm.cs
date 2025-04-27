@@ -42,7 +42,7 @@ namespace RickStock_WindowsFormApp
             {
                 MessageBox.Show("Kategori adı boş olamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             ComboboxDoldur();
             KategorileriGetir();
         }
@@ -52,6 +52,7 @@ namespace RickStock_WindowsFormApp
             ComboboxDoldur();
             KategorileriGetir();
             btn_duzenle.Visible = false;
+            dgv_urunler.DataSource = null;
         }
 
         private void cb_mainCategory_CheckedChanged(object sender, EventArgs e)
@@ -169,8 +170,8 @@ namespace RickStock_WindowsFormApp
         private void TSMI_Duzenle_Click(object sender, EventArgs e)
         {
             btn_duzenle.Visible = true;
-            
-            
+
+
             int categoryID = (int)selectedNode.Tag;
             Category c = db.Categories.Find(categoryID);
             if (c != null)
@@ -218,6 +219,66 @@ namespace RickStock_WindowsFormApp
         private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            selectedNode = e.Node; // Seçilen node’u güncelle
+            if (selectedNode != null)
+            {
+                int categoryID = (int)selectedNode.Tag; // Seçilen kategorinin ID’si
+                UrunleriListele(categoryID); // Ürünleri listele
+            }
+        }
+        private void UrunleriListele(int categoryID)
+        {
+            // Seçilen kategori ve alt kategorilerin ID’lerini topla
+            List<int> categoryIDs = new List<int> { categoryID };
+            categoryIDs.AddRange(GetSubCategoryIDs(categoryID));
+
+            // Kategorilere ait ürünleri al
+            var urunler = db.Products
+                .Where(p => categoryIDs.Contains(p.CategoryID) && !p.IsDeleted)
+                .ToList();
+
+            // DataGridView’i doldur
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Ürün İsmi");
+            dt.Columns.Add("Açıklama");
+            dt.Columns.Add("Fiyat");
+            dt.Columns.Add("Marka");
+            dt.Columns.Add("Kategori");
+            dt.Columns.Add("Aktif");
+
+            foreach (Product urun in urunler)
+            {
+                dt.Rows.Add(
+                    urun.ID,
+                    urun.Name,
+                    urun.Description,
+                    urun.Price,
+                    urun.Brand.Name,
+                    urun.Category.Name,
+                    urun.IsActive
+                );
+            }
+
+            dgv_urunler.DataSource = dt;
+        }
+
+        private List<int> GetSubCategoryIDs(int categoryID)
+        {
+            List<int> subCategoryIDs = new List<int>();
+            var subCategories = db.Categories.Where(c => c.UpCategoryID == categoryID).ToList();
+
+            foreach (var subCategory in subCategories)
+            {
+                subCategoryIDs.Add(subCategory.ID);
+                subCategoryIDs.AddRange(GetSubCategoryIDs(subCategory.ID)); // Özyinelemeli olarak alt kategorileri al
+            }
+
+            return subCategoryIDs;
         }
     }
 }

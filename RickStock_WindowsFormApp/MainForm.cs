@@ -88,5 +88,27 @@ namespace RickStock_WindowsFormApp
                 frm.Show();
             }
         }
+
+        private void bayilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            foreach (Form form in acikFormlar)
+            {
+                if (form.GetType() == typeof(DealerForm))
+                {
+                    acikMi = true;
+                    form.Activate();
+                }
+            }
+            if (acikMi == false)
+            {
+                DealerForm frm = new DealerForm();
+                this.Size = new System.Drawing.Size(frm.Width, frm.Height + 45);
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
+            }
+        }
     }
 }

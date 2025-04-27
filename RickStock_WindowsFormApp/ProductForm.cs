@@ -88,7 +88,7 @@ namespace RickStock_WindowsFormApp
             if (pictureChange)
             {
                 p.Image = pictureName;
-                string targetPath = Path.Combine(@"C:\Users\doga\Documents\GitHub\RickStore_WinFormApp\RickStock_WindowsFormApp\Assets\Images\ProductImages\", pictureName);
+                string targetPath = Path.Combine(Application.StartupPath, "Assets", "Images", "ProductImages", pictureName);
                 File.Copy(picturePath, targetPath, true);
             }
             else
@@ -200,6 +200,12 @@ namespace RickStock_WindowsFormApp
 
         private void btn_xml_Click(object sender, EventArgs e)
         {
+            string xmlKlasorYolu = @"C:\BayilikXML\";
+            if (!Directory.Exists(xmlKlasorYolu))
+            {
+                Directory.CreateDirectory(xmlKlasorYolu);
+            }
+
             List<DealerType> bayiTipleri = db.DealerTypes.ToList();
             List<Product> urunler = db.Products.ToList();
             foreach (var bayiTipi in bayiTipleri)
@@ -215,17 +221,18 @@ namespace RickStock_WindowsFormApp
                                 new XElement("Kategori", urun.Category.Name),
                                 new XElement("Marka", urun.Brand.Name),
                                 new XElement("ResimAdi", urun.Image),
-                                new XElement("Fiyat", urun.Price * ((100-bayiTipi.DiscountRate) / 100) )
+                                //new XElement("Fiyat", (((100-bayiTipi.DiscountRate) / 100)) ),
+                                new XElement("Fiyat", urun.Price * Convert.ToDecimal(((100 - Convert.ToInt32(bayiTipi.DiscountRate)) / 100.00))),
+                                new XElement("OlusturmaTarihi", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
                             ))
                         )
                     )
                 );
 
-                string dosyaAdi = $"{bayiTipi.Name}.xml";
-                doc.Save(dosyaAdi);
-                MessageBox.Show("Dosya oluşturuldu.");
-
+                string dosyaYolu = Path.Combine(xmlKlasorYolu, bayiTipi.Name + ".xml");
+                doc.Save(dosyaYolu);
             }
+            MessageBox.Show("XML Dökümanı Hazır.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

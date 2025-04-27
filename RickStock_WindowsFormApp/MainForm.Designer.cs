@@ -75,6 +75,7 @@
             this.bayilerToolStripMenuItem.Name = "bayilerToolStripMenuItem";
             this.bayilerToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.bayilerToolStripMenuItem.Text = "Bayiler";
+            this.bayilerToolStripMenuItem.Click += new System.EventHandler(this.bayilerToolStripMenuItem_Click);
             // 
             // MainForm
             // 
