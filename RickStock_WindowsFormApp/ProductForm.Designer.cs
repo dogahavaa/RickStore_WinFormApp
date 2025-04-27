@@ -49,7 +49,9 @@
             this.CMS_SilDuzenle = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_Duzenle = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_Sil = new System.Windows.Forms.ToolStripMenuItem();
+            this.yokEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_duzenle = new System.Windows.Forms.Button();
+            this.btn_xml = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_fiyat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_resim)).BeginInit();
@@ -68,7 +70,7 @@
             // btn_ekle
             // 
             this.btn_ekle.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_ekle.Location = new System.Drawing.Point(549, 243);
+            this.btn_ekle.Location = new System.Drawing.Point(549, 218);
             this.btn_ekle.Name = "btn_ekle";
             this.btn_ekle.Size = new System.Drawing.Size(223, 35);
             this.btn_ekle.TabIndex = 12;
@@ -122,7 +124,7 @@
             // 
             // tb_aciklama
             // 
-            this.tb_aciklama.Location = new System.Drawing.Point(548, 142);
+            this.tb_aciklama.Location = new System.Drawing.Point(548, 129);
             this.tb_aciklama.Multiline = true;
             this.tb_aciklama.Name = "tb_aciklama";
             this.tb_aciklama.Size = new System.Drawing.Size(224, 77);
@@ -132,7 +134,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(457, 170);
+            this.label4.Location = new System.Drawing.Point(457, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 20);
             this.label4.TabIndex = 17;
@@ -164,7 +166,7 @@
             // 
             this.checkBox_aktif.AutoSize = true;
             this.checkBox_aktif.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBox_aktif.Location = new System.Drawing.Point(461, 249);
+            this.checkBox_aktif.Location = new System.Drawing.Point(461, 224);
             this.checkBox_aktif.Name = "checkBox_aktif";
             this.checkBox_aktif.Size = new System.Drawing.Size(61, 24);
             this.checkBox_aktif.TabIndex = 21;
@@ -223,14 +225,15 @@
             // 
             this.CMS_SilDuzenle.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSMI_Duzenle,
-            this.TSMI_Sil});
+            this.TSMI_Sil,
+            this.yokEtToolStripMenuItem});
             this.CMS_SilDuzenle.Name = "CMS_SilDuzenle";
-            this.CMS_SilDuzenle.Size = new System.Drawing.Size(181, 70);
+            this.CMS_SilDuzenle.Size = new System.Drawing.Size(133, 70);
             // 
             // TSMI_Duzenle
             // 
             this.TSMI_Duzenle.Name = "TSMI_Duzenle";
-            this.TSMI_Duzenle.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Duzenle.Size = new System.Drawing.Size(132, 22);
             this.TSMI_Duzenle.Text = "Düzenle";
             this.TSMI_Duzenle.Click += new System.EventHandler(this.TSMI_Duzenle_Click);
             // 
@@ -241,10 +244,17 @@
             this.TSMI_Sil.Text = "Sil / Geri Al";
             this.TSMI_Sil.Click += new System.EventHandler(this.TSMI_Sil_Click);
             // 
+            // yokEtToolStripMenuItem
+            // 
+            this.yokEtToolStripMenuItem.Name = "yokEtToolStripMenuItem";
+            this.yokEtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.yokEtToolStripMenuItem.Text = "Yok Et!";
+            this.yokEtToolStripMenuItem.Click += new System.EventHandler(this.yokEtToolStripMenuItem_Click);
+            // 
             // btn_duzenle
             // 
             this.btn_duzenle.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_duzenle.Location = new System.Drawing.Point(549, 243);
+            this.btn_duzenle.Location = new System.Drawing.Point(549, 218);
             this.btn_duzenle.Name = "btn_duzenle";
             this.btn_duzenle.Size = new System.Drawing.Size(223, 35);
             this.btn_duzenle.TabIndex = 27;
@@ -252,11 +262,23 @@
             this.btn_duzenle.UseVisualStyleBackColor = true;
             this.btn_duzenle.Visible = false;
             // 
+            // btn_xml
+            // 
+            this.btn_xml.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_xml.Location = new System.Drawing.Point(548, 259);
+            this.btn_xml.Name = "btn_xml";
+            this.btn_xml.Size = new System.Drawing.Size(223, 35);
+            this.btn_xml.TabIndex = 28;
+            this.btn_xml.Text = "XML Çıktısı";
+            this.btn_xml.UseVisualStyleBackColor = true;
+            this.btn_xml.Click += new System.EventHandler(this.btn_xml_Click);
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 540);
+            this.Controls.Add(this.btn_xml);
             this.Controls.Add(this.btn_duzenle);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cb_marka);
@@ -310,5 +332,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSMI_Duzenle;
         private System.Windows.Forms.ToolStripMenuItem TSMI_Sil;
         private System.Windows.Forms.Button btn_duzenle;
+        private System.Windows.Forms.ToolStripMenuItem yokEtToolStripMenuItem;
+        private System.Windows.Forms.Button btn_xml;
     }
 }

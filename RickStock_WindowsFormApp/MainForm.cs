@@ -23,5 +23,70 @@ namespace RickStock_WindowsFormApp
             loginForm.ShowDialog();
         }
 
+        private void TSMI_Urunler_Click(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            foreach (Form form in acikFormlar)
+            {
+                if (form.GetType() == typeof(ProductForm))
+                {
+                    acikMi = true;
+                    form.Activate();//Form Açılmışsa En Öne Getir
+                }
+            }
+            if (acikMi == false)
+            {
+                ProductForm frm = new ProductForm();
+                this.Size = new System.Drawing.Size(frm.Width, frm.Height + 30);
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_MarkaIslemleri_Click(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            foreach (Form form in acikFormlar)
+            {
+                if (form.GetType() == typeof(BrandForm))
+                {
+                    acikMi = true;
+                    form.Activate();
+                }
+            }
+            if (acikMi == false)
+            {
+                BrandForm frm = new BrandForm();
+                this.Size = new System.Drawing.Size(frm.Width, frm.Height + 30);
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_KategoriIslemleri_Click(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            foreach (Form form in acikFormlar)
+            {
+                if (form.GetType() == typeof(CategoryForm))
+                {
+                    acikMi = true;
+                    form.Activate();
+                }
+            }
+            if (acikMi == false)
+            {
+                CategoryForm frm = new CategoryForm();
+                this.Size = new System.Drawing.Size(frm.Width, frm.Height + 45);
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
+            }
+        }
     }
 }

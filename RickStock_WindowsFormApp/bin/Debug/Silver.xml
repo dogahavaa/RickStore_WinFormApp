@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BayiTipi TipAdi="Silver">
+  <Urunler>
+    <Urun>
+      <BarkodNo>ELD2451</BarkodNo>
+      <UrunAdi>Everest Boks Eldiveni (Siyah)</UrunAdi>
+      <Aciklama>10 OZ Antrenman eldiveni</Aciklama>
+      <Kategori>Eldivenler</Kategori>
+      <Marka>Everestt</Marka>
+      <ResimAdi>12c9a21b-490f-461c-a689-7f824c9867bf.png</ResimAdi>
+      <Fiyat>0.00</Fiyat>
+    </Urun>
+    <Urun>
+      <BarkodNo>fdgdf</BarkodNo>
+      <UrunAdi>fdgdf</UrunAdi>
+      <Aciklama></Aciklama>
+      <Kategori>Eldivenler</Kategori>
+      <Marka>Nike</Marka>
+      <ResimAdi>73634e98-70f5-41e0-828b-a5ee8aefac84.jpg</ResimAdi>
+      <Fiyat>0.00</Fiyat>
+    </Urun>
+    <Urun>
+      <BarkodNo>asdas</BarkodNo>
+      <UrunAdi>asdsa</UrunAdi>
+      <Aciklama>asdasd</Aciklama>
+      <Kategori>Eldivenler</Kategori>
+      <Marka>Nike</Marka>
+      <ResimAdi>6dd9d6bd-a73a-4fc5-a6ff-af0bf0fc0c08.png</ResimAdi>
+      <Fiyat>0.00</Fiyat>
+    </Urun>
+  </Urunler>
+</BayiTipi>

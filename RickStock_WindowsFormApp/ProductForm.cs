@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace RickStock_WindowsFormApp
 {
@@ -94,7 +95,7 @@ namespace RickStock_WindowsFormApp
             {
                 p.Image = "noImage.png";
             }
-            
+
 
             p.CategoryID = Convert.ToInt32(cb_kategoriler.SelectedValue);
             p.BrandID = Convert.ToInt32(cb_marka.SelectedValue);
@@ -119,7 +120,7 @@ namespace RickStock_WindowsFormApp
 
                     //Picturebox resmini değiştir.
                     pb_resim.ImageLocation = picturePath;
-                    
+
                     pictureName = Guid.NewGuid().ToString() + pictureExtension;
                     pictureChange = true;
                 }
@@ -178,6 +179,52 @@ namespace RickStock_WindowsFormApp
                 {
                     MessageBox.Show("Ürün bulunamadı.");
                 }
+            }
+        }
+
+        private void yokEtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[0].Value);
+            Product p = db.Products.Find(id);
+            if (p != null)
+            {
+                DialogResult sonuc = MessageBox.Show($"'{p.Name}' ürününü TAMAMEN silmek istiyor musun ?\nBu işlem geri alınamaz!", "Sil & Geri Al", MessageBoxButtons.YesNo);
+                if (sonuc == DialogResult.Yes)
+                {
+                    db.Products.Remove(p);
+                    db.SaveChanges();
+                    GridViewDoldur();
+                }
+            }
+        }
+
+        private void btn_xml_Click(object sender, EventArgs e)
+        {
+            List<DealerType> bayiTipleri = db.DealerTypes.ToList();
+            List<Product> urunler = db.Products.ToList();
+            foreach (var bayiTipi in bayiTipleri)
+            {
+                XDocument doc = new XDocument(
+                    new XElement("BayiTipi",
+                        new XAttribute("TipAdi", bayiTipi.Name),
+                        new XElement("Urunler",
+                            urunler.Select(urun => new XElement("Urun",
+                                new XElement("BarkodNo", urun.BarcodeNo),
+                                new XElement("UrunAdi", urun.Name),
+                                new XElement("Aciklama", urun.Description),
+                                new XElement("Kategori", urun.Category.Name),
+                                new XElement("Marka", urun.Brand.Name),
+                                new XElement("ResimAdi", urun.Image),
+                                new XElement("Fiyat", urun.Price * ((100-bayiTipi.DiscountRate) / 100) )
+                            ))
+                        )
+                    )
+                );
+
+                string dosyaAdi = $"{bayiTipi.Name}.xml";
+                doc.Save(dosyaAdi);
+                MessageBox.Show("Dosya oluşturuldu.");
+
             }
         }
     }

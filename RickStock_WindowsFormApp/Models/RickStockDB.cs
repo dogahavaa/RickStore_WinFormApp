@@ -16,6 +16,8 @@ namespace RickStock_WindowsFormApp.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Dealer> Dealers { get; set; }
+        public DbSet<DealerType> DealerTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
