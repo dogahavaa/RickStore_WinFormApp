@@ -27,5 +27,6 @@ namespace RickStock_WindowsFormApp.Models
         public virtual Brand Brand { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; } = false;
+        public virtual ICollection<ProductVariant> ProductVariants { get; set; } = new List<ProductVariant>();
     }
 }

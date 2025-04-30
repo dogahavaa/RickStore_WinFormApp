@@ -18,6 +18,8 @@ namespace RickStock_WindowsFormApp.Models
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Dealer> Dealers { get; set; }
         public DbSet<DealerType> DealerTypes { get; set; }
+        public DbSet<Variant> Variants { get; set; }
+        public DbSet<ProductVariant> ProductVariants { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

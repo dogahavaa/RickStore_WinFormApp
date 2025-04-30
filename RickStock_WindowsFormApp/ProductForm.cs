@@ -15,6 +15,8 @@ namespace RickStock_WindowsFormApp
 {
     // ***** YAPILACAKLAR *******
     // Düzenle tamamlanacak
+    // Ekleye basınca varyans formu aç olayı ordan devam ettir.
+
     public partial class ProductForm : Form
     {
         RickStockDB db = new RickStockDB();
@@ -23,6 +25,7 @@ namespace RickStock_WindowsFormApp
         string pictureExtension;
         bool pictureChange = false;
         int rowindex = -1;
+        private List<ProductVariant> VariantList = new List<ProductVariant>();
 
         public ProductForm()
         {
@@ -33,6 +36,32 @@ namespace RickStock_WindowsFormApp
         {
             ComboboxlariDoldur();
             GridViewDoldur();
+            VariantGridViewDoldur();
+        }
+
+        private void VariantGridViewDoldur()
+        {
+            dgv_variants.Columns.Clear();
+            dgv_variants.Columns.Add("VariantType", "Varyasyon Türü");
+            dgv_variants.Columns.Add("VariantValue", "Değer");
+            dgv_variants.Columns.Add("Stock", "Stok");
+
+            foreach (var variant in VariantList)
+            {
+                dgv_variants.Rows.Add(variant.Variant.VariantType, variant.Variant.VariantValue, variant.Stock);
+            }
+        }
+
+        private void btn_addVariant_Click(object sender, EventArgs e)
+        {
+            using (VariantForm form = new VariantForm())
+            {
+                if (form.ShowDialog() == DialogResult.OK && form.NewVariant != null)
+                {
+                    VariantList.Add(form.NewVariant);
+                    VariantGridViewDoldur();
+                }
+            }
         }
 
         private void GridViewDoldur()
@@ -47,9 +76,29 @@ namespace RickStock_WindowsFormApp
             dt.Columns.Add("Kategori");
             dt.Columns.Add("Aktif");
             dt.Columns.Add("Silinmiş");
+            dt.Columns.Add("Varyasyonlar");
 
             foreach (Product urun in urunler)
             {
+                List<ProductVariant> variants = db.ProductVariants.Where(v => v.ProductID == urun.ID).ToList();
+                string variantsText = "";
+                if (variants.Count > 0)
+                {
+                    foreach (ProductVariant variant in variants)
+                    {
+                        if (variantsText != "") // Eğer daha önce bir varyasyon eklendiyse, virgül koy
+                        {
+                            variantsText += ", ";
+                        }
+                        variantsText += variant.Variant.VariantType + ": " + variant.Variant.VariantValue + " (Stok: " + variant.Stock + ")";
+                    }
+                }
+                else
+                {
+                    variantsText = "Yok";
+                }
+
+
                 dt.Rows.Add(
                     urun.ID,
                     urun.Name,
@@ -58,7 +107,8 @@ namespace RickStock_WindowsFormApp
                     urun.Brand.Name,
                     urun.Category.Name,
                     urun.IsActive,
-                    urun.IsDeleted
+                    urun.IsDeleted,
+                    variantsText
                     );
             }
 
@@ -78,12 +128,21 @@ namespace RickStock_WindowsFormApp
 
         private void btn_ekle_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tb_urunAdi.Text) || string.IsNullOrEmpty(tb_barkodno.Text))
+            {
+                MessageBox.Show("Ürün adı ve barkod numarası zorunludur!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Product p = new Product();
             p.Name = tb_urunAdi.Text;
             p.BarcodeNo = tb_barkodno.Text;
             p.Price = nud_fiyat.Value;
             p.Description = tb_aciklama.Text;
             p.IsActive = checkBox_aktif.Checked;
+            p.ProductVariants = VariantList;
+            p.CategoryID = Convert.ToInt32(cb_kategoriler.SelectedValue);
+            p.BrandID = Convert.ToInt32(cb_marka.SelectedValue);
 
             if (pictureChange)
             {
@@ -96,14 +155,23 @@ namespace RickStock_WindowsFormApp
                 p.Image = "noImage.png";
             }
 
-
-            p.CategoryID = Convert.ToInt32(cb_kategoriler.SelectedValue);
-            p.BrandID = Convert.ToInt32(cb_marka.SelectedValue);
-
             db.Products.Add(p);
             db.SaveChanges();
+
+
+            //ProductID'nin varyasyonlara atanması
+            foreach (var variant in p.ProductVariants)
+            {
+                variant.ProductID = p.ID;
+            }
+            db.SaveChanges();
+
+
+            VariantList.Clear();
+            VariantGridViewDoldur();
             ComboboxlariDoldur();
             GridViewDoldur();
+            MessageBox.Show("Ürün başarıyla eklendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void pb_resim_Click(object sender, EventArgs e)
@@ -171,9 +239,12 @@ namespace RickStock_WindowsFormApp
                     nud_fiyat.Value = p.Price;
                     tb_aciklama.Text = p.Description;
                     checkBox_aktif.Checked = p.IsActive;
-                    pb_resim.ImageLocation = @"C:\Users\doga\Documents\GitHub\RickStore_WinFormApp\RickStock_WindowsFormApp\Assets\Images\ProductImages\" + p.Image;
+                    pb_resim.ImageLocation = Path.Combine(Application.StartupPath, "Assets", "Images", "ProductImages", p.Image);
                     cb_kategoriler.SelectedValue = p.CategoryID;
                     cb_marka.SelectedValue = p.BrandID;
+
+                    VariantList = db.ProductVariants.Where(v => v.ProductID == p.ID).ToList();
+                    VariantGridViewDoldur();
                 }
                 else
                 {
@@ -191,6 +262,16 @@ namespace RickStock_WindowsFormApp
                 DialogResult sonuc = MessageBox.Show($"'{p.Name}' ürününü TAMAMEN silmek istiyor musun ?\nBu işlem geri alınamaz!", "Sil & Geri Al", MessageBoxButtons.YesNo);
                 if (sonuc == DialogResult.Yes)
                 {
+                    List<ProductVariant> variants = db.ProductVariants.Where(v => v.ProductID == p.ID).ToList();
+                    foreach (ProductVariant item in variants)
+                    {
+                        Variant v = db.Variants.Find(item.VariantID);
+                        if (v != null)
+                        {
+                            db.Variants.Remove(v);
+                        }
+                    }
+                    db.ProductVariants.RemoveRange(variants);
                     db.Products.Remove(p);
                     db.SaveChanges();
                     GridViewDoldur();
@@ -221,9 +302,16 @@ namespace RickStock_WindowsFormApp
                                 new XElement("Kategori", urun.Category.Name),
                                 new XElement("Marka", urun.Brand.Name),
                                 new XElement("ResimAdi", urun.Image),
-                                //new XElement("Fiyat", (((100-bayiTipi.DiscountRate) / 100)) ),
                                 new XElement("Fiyat", urun.Price * Convert.ToDecimal(((100 - Convert.ToInt32(bayiTipi.DiscountRate)) / 100.00))),
-                                new XElement("OlusturmaTarihi", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+                                new XElement("OlusturmaTarihi", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+                                new XElement("Varyasyonlar",
+                                    db.ProductVariants.Where(v => v.ProductID == urun.ID)
+                                        .Select(v => new XElement("Varyasyon",
+                                            new XElement("Tur", v.Variant.VariantType),
+                                            new XElement("Deger", v.Variant.VariantValue),
+                                            new XElement("Stok", v.Stock)
+                                        ))
+                                )
                             ))
                         )
                     )
